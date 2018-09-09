@@ -1,0 +1,23 @@
+{% import_yaml 'pam/defaults.yaml' as default_settings %}
+
+{% set kernel_map = salt['grains.filter_by']({
+  'default': {
+    'pkgs': [ 'pam' ],
+    'locations': {
+      'pam_d': '/etc/pam.d',
+      'security': '/etc/security',
+      'limits_conf': '/etc/security/limits.conf',
+      'limits_d': '/etc/security/limits.d'
+    },
+  },
+}, grain='kernel', default='default', merge=salt['pillar.get']('pam:lookup', {}))
+%}
+
+{% do default_settings.pam.lookup.update(kernel_map) %}
+
+{% set pam_settings = salt['pillar.get'](
+    'pam',
+    default=default_settings.pam,
+    merge=True
+  )
+%}
