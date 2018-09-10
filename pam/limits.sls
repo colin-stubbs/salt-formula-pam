@@ -9,7 +9,7 @@ include:
     - source: salt://pam/files/limits.conf
     - template: jinja
     - context:
-      limits_conf: {{ pam_settings.lookup.locations.limits_conf }}
+      filename: {{ pam_settings.lookup.locations.limits_conf }}
       limits: {{ pam_settings.limits }}
     - user: root
     - group: root
