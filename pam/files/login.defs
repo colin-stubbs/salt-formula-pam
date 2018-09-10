@@ -1,0 +1,11 @@
+# {{ filename }}
+#
+# WARNING: This file is managed by Salt Stack. Fix the formula NOT this file.
+#
+{% for key, value in login_defs.items() -%}
+{%- if key != '' and value != '' %}
+{{ key }} {{ value }}
+{%- endif %}
+{%- endfor %}
+
+# EOF

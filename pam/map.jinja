@@ -2,13 +2,14 @@
 
 {% set kernel_map = salt['grains.filter_by']({
   'default': {
-    'pkgs': [ 'pam', 'libpwquality' ],
+    'pkgs': [ 'pam', 'libpwquality', 'shadow-utils' ],
     'locations': {
       'pam_d': '/etc/pam.d',
       'security': '/etc/security',
       'limits_conf': '/etc/security/limits.conf',
       'limits_d': '/etc/security/limits.d',
-      'pwquality_conf': '/etc/security/pwquality.conf'
+      'pwquality_conf': '/etc/security/pwquality.conf',
+      'login_defs': '/etc/login.defs'
     },
   },
 }, grain='kernel', default='default', merge=salt['pillar.get']('pam:lookup', {}))
