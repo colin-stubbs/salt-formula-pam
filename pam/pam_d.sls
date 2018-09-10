@@ -5,7 +5,7 @@ include:
 
 {% if 'pam_d' in pam_settings and 'source' in pam_settings.pam_d %}
 {{ pam_settings.lookup.locations.pam_d }}:
-  file.directory:
+  file.recurse:
     - source: {{ pam_settings.pam_d.source }}
     - makedirs: True
     - follow_symlinks: True
