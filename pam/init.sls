@@ -3,5 +3,6 @@
 include:
   - pam.packages
   - pam.limits
+  - pam.pwquality
 
 {# EOF #}
