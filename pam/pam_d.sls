@@ -13,7 +13,6 @@ include:
     - clean: {{ pam_settings.pam_d.clean|default(False) }}
     - user: root
     - group: root
-    - mode: 0755
     - dir_mode: 0755
     - file_mode: 0644
     - recurse:
