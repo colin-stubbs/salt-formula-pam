@@ -2,6 +2,7 @@
 
 include:
   - pam.packages
+  - pam.pam_d
   - pam.limits
   - pam.pwquality
   - pam.login_defs
